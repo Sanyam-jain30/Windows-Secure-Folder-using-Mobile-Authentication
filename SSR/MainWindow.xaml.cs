@@ -23,6 +23,7 @@ namespace SSR
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }
