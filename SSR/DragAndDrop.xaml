@@ -1,0 +1,46 @@
+﻿<Page x:Class="SSR.DragAndDrop"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SSR"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DragAndDrop">
+
+    <Grid x:Name="GridSpace" Background="White">
+        <Border BorderThickness="3" BorderBrush="#2200FF" CornerRadius="10" Padding="2"
+        HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Grid>
+                <Border Name="mask" Background="White" CornerRadius="7"/>
+
+                <StackPanel
+                    x:Name="DropSpace"
+                    Grid.Row="1"
+                    Width="400"
+                    Height="200"
+                    AllowDrop="True"
+                    Drop="DropSpace_Drop"
+                    DragOver="DropSpace_DragOver"
+                    DragLeave="DropSpace_DragLeave"
+                    >
+                    <TextBlock Width="400" Height="200" FontSize="18" FontWeight="Bold" TextAlignment="Center">
+                        <Image VerticalAlignment="Center" x:Name="add" Source="/Assest/Drag.png" Height="80" Width="80" Margin="20"/><LineBreak/>
+                        Drag and Drop File
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <TextBlock x:Name="FilePathValue" HorizontalAlignment="Center" FontWeight="Bold" Margin="0, 300, 0, 0" />
+
+        <Button x:Name="LockFile" Content="Lock File" Background="#065AFF" Foreground="White" FontSize="18" FontFamily="Calibri" FontWeight="SemiBold" HorizontalAlignment="Center" Width="100" Height="30"  Margin="0, 330, 0, 0" Click="AddFile_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Page>

@@ -3,6 +3,8 @@ using System.Windows;
 using System.Data;
 using System.Xml;
 using System.Configuration;
+using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace SSR
 {
@@ -10,12 +12,9 @@ namespace SSR
     {
         void AppStartup(object sender, StartupEventArgs e)
         {
-            // Create the startup window
-            MainWindow wnd = new MainWindow();
-            // Do stuff here, e.g. to the window
-            wnd.Title = "SSR";
-            // Show the window
-            wnd.Show();
+            NavigationService n = NavigationService.GetNavigationService(sender as Button);
+
+            n.Navigate(new Uri("MainWindow.xaml", UriKind.Relative));
         }
     }
 }

@@ -11,7 +11,7 @@ namespace StrongPasswordGen
     {
         static RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
 
-        static void randompasswordgenerator(string[] args)
+        public static string randompasswordgenerator()
         {
 
             int PasswordAmount = 0;
@@ -20,7 +20,7 @@ namespace StrongPasswordGen
             string CapitalLetters = "QWERTYUIOPASDFGHJKLZXCVBNM";
             string SmallLetters = "qwertyuiopasdfghjklzxcvbnm";
             string Digits = "0123456789";
-            string SpecialCharacters = "!@#$%^&*()-_=+<,>.";
+            string SpecialCharacters = "!@#$^&";
             string AllChar = CapitalLetters + SmallLetters + Digits + SpecialCharacters;
 
 
@@ -33,8 +33,6 @@ namespace StrongPasswordGen
             PasswordLength = 8;
 
             string[] AllPasswords = new string[PasswordAmount];
-
-
 
             do
             {
@@ -55,12 +53,10 @@ namespace StrongPasswordGen
                 //Task.Delay(TimeSpan.FromSeconds(2)).Wait();
                 foreach (string singlePassword in AllPasswords)
                 {
-                    Console.WriteLine(singlePassword);
+                    return singlePassword;
                 }
                 Task.Delay(TimeSpan.FromSeconds(60)).Wait();
             } while (true);
-
-
 
         }
 
